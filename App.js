@@ -1,12 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StatusBar, StyleSheet, Text, View } from 'react-native';
+import SectionListBasics from './components/SectionListBasics';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app! abc</Text>
-      <Text>My First App</Text>
-      <StatusBar style="auto" />
+    <View>
+      <StatusBar backgroundColor="#61dafb" hidden={false}/>
+      <Text style={styles.titleText} >
+        {"Modes"}
+      </Text>
+      <FlatList
+        data={[{ key: 'sectionList' }]}
+        renderItem={() => <SectionListBasics />}
+      />
     </View>
   );
 }
@@ -17,5 +22,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  titleText: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
